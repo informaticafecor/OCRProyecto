@@ -1,0 +1,219 @@
+<<<<<<< HEAD
+# ProyectoOCR
+=======
+# PDF OCR Processor v1.0
+
+🚀 **Aplicación con interfaz gráfica para procesar PDFs con OCR automático**
+
+## 📋 Características
+
+- ✅ **Detección automática**: Identifica si un PDF tiene texto embebido o es escaneado
+- ✅ **OCR inteligente**: Solo aplica OCR cuando es necesario
+- ✅ **Interfaz gráfica intuitiva**: Fácil de usar con Tkinter
+- ✅ **Procesamiento por lotes**: Maneja múltiples archivos simultáneamente
+- ✅ **Múltiples idiomas**: Soporte para español, inglés, francés, alemán, italiano y portugués
+- ✅ **Arrastrar y soltar**: Funcionalidad drag & drop para archivos
+- ✅ **Configuración avanzada**: Opciones detalladas de personalización
+- ✅ **Sistema de logs**: Seguimiento completo de operaciones
+- ✅ **Backups automáticos**: Protección de archivos originales
+
+## 🛠️ Instalación
+
+### Prerrequisitos
+
+1. **Python 3.8 o superior**
+2. **Tesseract OCR** instalado y configurado
+3. **Windows 10/11** (otras plataformas no probadas)
+
+### Paso 1: Instalar Tesseract OCR
+
+1. Descargar desde: https://github.com/UB-Mannheim/tesseract/wiki
+2. Ejecutar instalador y **seleccionar idiomas adicionales** (especialmente español)
+3. Agregar al PATH del sistema: `C:\Program Files\Tesseract-OCR`
+
+### Paso 2: Instalar dependencias de Python
+
+```bash
+# Crear entorno virtual (recomendado)
+python -m venv pdf_ocr_env
+pdf_ocr_env\Scripts\activate
+
+# Instalar dependencias
+pip install -r requirements.txt
+```
+
+### Paso 3: Verificar instalación
+
+```bash
+# Verificar Tesseract
+tesseract --version
+tesseract --list-langs
+
+# Verificar Python
+python main.py
+```
+
+## 🚀 Uso
+
+### Ejecutar la aplicación
+
+```bash
+python main.py
+```
+
+### Uso básico
+
+1. **Seleccionar archivos**: Usa los botones o arrastra archivos PDF a la ventana
+2. **Configurar opciones**: Selecciona idioma y directorio de salida
+3. **Analizar**: Revisa qué archivos necesitan OCR
+4. **Procesar**: Aplica OCR automáticamente donde sea necesario
+
+### Funciones principales
+
+- **📄 Seleccionar Archivos**: Elige archivos PDF individuales
+- **📁 Seleccionar Carpeta**: Procesa todos los PDFs de una carpeta
+- **🔍 Analizar Archivos**: Revisa el contenido antes de procesar
+- **⚡ Procesar Archivos**: Aplica OCR inteligente
+- **⚙️ Configuración Avanzada**: Opciones detalladas de personalización
+
+## 📁 Estructura del Proyecto
+
+```
+pdf_ocr_processor/
+├── main.py                 # 🚀 EJECUTAR ESTE ARCHIVO
+├── requirements.txt        # 📦 Dependencias
+├── config.ini             # ⚙️ Configuración
+├── README.md              # 📖 Este archivo
+│
+├── src/                   # 📁 Código fuente
+│   ├── pdf_analyzer.py    # 🔍 Análisis de PDFs
+│   ├── ocr_processor.py   # 🔧 Procesamiento OCR
+│   ├── pdf_processor.py   # 🏭 Orquestador principal
+│   └── utils.py           # 🛠️ Utilidades
+│
+├── gui/                   # 🖼️ Interfaz gráfica
+│   ├── main_window.py     # 📱 Ventana principal
+│   ├── progress_dialog.py # ⏳ Diálogo de progreso
+│   └── settings_dialog.py # ⚙️ Configuración GUI
+│
+├── logs/                  # 📄 Archivos de log
+├── temp/                  # 🗂️ Archivos temporales
+└── backups/              # 💾 Copias de seguridad
+```
+
+## ⚙️ Configuración
+
+### Archivo config.ini
+
+El archivo `config.ini` permite personalizar:
+
+- **Idioma de OCR**: Español por defecto
+- **Calidad de procesamiento**: Optimización y compresión
+- **Directorios**: Salida, logs, temporales
+- **Interfaz**: Tema, comportamiento
+- **Logging**: Nivel de detalle, archivos
+
+### Configuración avanzada
+
+Accede desde la aplicación: **Herramientas → Configuración Avanzada**
+
+## 🔧 Solución de Problemas
+
+### Error: "tesseract: command not found"
+
+```bash
+# Verificar instalación
+where tesseract
+
+# Si no aparece, agregar al PATH
+set PATH=%PATH%;C:\Program Files\Tesseract-OCR
+```
+
+### Error: "Language 'spa' not found"
+
+1. Reinstalar Tesseract seleccionando idiomas adicionales
+2. O descargar desde: https://github.com/tesseract-ocr/tessdata
+
+### Procesamiento muy lento
+
+1. Reducir calidad en configuración avanzada
+2. Usar archivos más pequeños
+3. Verificar disponibilidad de memoria
+
+### Archivos no se procesan
+
+1. Verificar permisos de escritura
+2. Cerrar aplicaciones que tengan los PDFs abiertos
+3. Revisar logs para detalles del error
+
+## 📊 Interpretación de Resultados
+
+### Estados de archivo
+
+- **✅ Con texto**: PDF ya tiene texto embebido
+- **📄 Requiere OCR**: PDF escaneado, necesita procesamiento
+- **⚡ OCR aplicado**: Se aplicó reconocimiento óptico exitosamente
+- **📋 Copiado**: Se copió sin cambios (ya tenía texto)
+- **❌ Error**: Problema durante el procesamiento
+
+### Archivos generados
+
+- **`archivo_processed.pdf`**: Archivo principal procesado
+- **`archivo_backup_TIMESTAMP.pdf`**: Backup del original (si está habilitado)
+- **`pdf_processor_TIMESTAMP.log`**: Log detallado de la sesión
+
+## 🎯 Próximas Características
+
+### Fase 2: Generación de Índice
+- [ ] Detección automática de títulos y secciones
+- [ ] Creación de tabla de contenidos navegable
+- [ ] Numeración automática de páginas
+
+### Fase 3: Navegación Interna
+- [ ] Enlaces automáticos entre secciones
+- [ ] Marcadores (bookmarks) en el PDF
+- [ ] Hipervínculos a páginas específicas
+
+### Fase 4: Análisis Avanzado
+- [ ] Extracción de metadatos estructurados
+- [ ] Clasificación automática de documentos
+- [ ] Detección y procesamiento de formularios
+
+## 🤝 Contribuir
+
+1. Fork del repositorio
+2. Crear rama para nueva característica (`git checkout -b feature/nueva-caracteristica`)
+3. Commit de cambios (`git commit -am 'Agregar nueva característica'`)
+4. Push a la rama (`git push origin feature/nueva-caracteristica`)
+5. Crear Pull Request
+
+## 📄 Licencia
+
+Este proyecto está licenciado bajo [Tu Licencia] - ver archivo LICENSE para detalles.
+
+## 👨‍💻 Autor
+
+**Tu Nombre**
+- Email: tu@email.com
+- GitHub: @tuusuario
+
+## 🙏 Agradecimientos
+
+- **OCRmyPDF**: Biblioteca principal para OCR en PDFs
+- **Tesseract**: Motor de OCR de Google
+- **PyMuPDF**: Manipulación de documentos PDF
+- **Tkinter**: Interfaz gráfica nativa de Python
+
+---
+
+## 📞 Soporte
+
+Si encuentras problemas:
+
+1. 📋 Revisa los logs en la carpeta `logs/`
+2. 🔍 Usa "Validar Sistema" en la aplicación
+3. 📖 Consulta este README
+4. 🐛 Reporta bugs en GitHub Issues
+
+**¡Disfruta procesando tus PDFs con OCR automático!** 🎉
+>>>>>>> 02c7af5 (subiendo archivos ocr)

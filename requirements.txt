@@ -1,0 +1,32 @@
+# PDF OCR Processor - Dependencias
+# Instalar con: pip install -r requirements.txt
+
+# Procesamiento de PDFs
+PyPDF2==3.0.1
+PyMuPDF==1.23.14
+
+# OCR y procesamiento de imágenes
+ocrmypdf==15.4.4
+Pillow==10.0.1
+
+# Conversión a Word
+pdf2docx==0.5.8
+python-docx==1.1.0
+
+# Utilidades adicionales
+reportlab==4.0.4
+
+# GUI (Tkinter viene con Python por defecto)
+# tkinter - incluido en Python estándar
+
+# Opcional: Para arrastrar y soltar archivos (mejorado)
+# tkinterdnd2==0.3.0
+
+# Logging y utilidades del sistema
+# logging - incluido en Python estándar
+# pathlib - incluido en Python estándar
+# threading - incluido en Python estándar
+
+# Nota: Si tienes problemas con PyMuPDF, puedes usar:
+# pip install --upgrade pip
+# pip install PyMuPDF --no-cache-dir
